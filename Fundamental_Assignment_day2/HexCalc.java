@@ -219,7 +219,8 @@ class Hex
 		float DecimalSecond= ToDecimal(second_number,16);
 		float result= DecimalFirst*DecimalSecond;
 		String ResultString=ToHexadecimalNumber(result,16);
-		return ResultString;	}
+		return ResultString;
+		}
 	public String Divide(String first_number,String second_number)
 	{
 
@@ -233,6 +234,10 @@ class Hex
 		 */
 		float DecimalFirst= ToDecimal(first_number,16);
 		float DecimalSecond= ToDecimal(second_number,16);
+		if(DecimalSecond==0)
+		{
+			throw new ArithmeticException("divide by 0 exception");
+		}
 		float result= DecimalFirst/DecimalSecond;
 		String ResultString=ToHexadecimalNumber(result,16);
 		return ResultString;
@@ -256,18 +261,20 @@ class Hex
 		return true;
 		
 	}
-	public boolean Compare(String FirstNumber, String SecondNumber)
+	public int Compare(String FirstNumber, String SecondNumber)
 	{
 		/*
 		 * method for comparing two hexadecimal numbers 
+		 * default assuming that first string is smaller than second string
 		 */
+		int flag=1;
 		if(FirstNumber.length()<SecondNumber.length())
 		{
-			return true ;
+			flag=1;
 		}
 		else if(FirstNumber.length()>SecondNumber.length())
 		{
-			return false ;
+			flag=0;
 		}
 		else
 		{
@@ -275,15 +282,11 @@ class Hex
 			{
 				if(FirstNumber.charAt(itr)>SecondNumber.charAt(itr))
 				{
-					return false ;
-				}
-				else
-				{
-					return true ;
+					flag=0 ;
 				}
 			}
 		}
-		return true;//issue
+		return flag;
 	}
 	public boolean IsGreater(String FirstNumber, String SecondNumber)
 	{
@@ -291,13 +294,13 @@ class Hex
 		 * method for checking whether first number is greater than second number or not
 		 * @return true or false
 		 */
-		if(Compare(FirstNumber,SecondNumber))
+		if(Compare(FirstNumber,SecondNumber)==0)
 		{
-			return false;
+			return true;
 		}
 		else
 		{
-			return true;
+			return false;
 		}
 	}
 	public boolean IsSmaller(String FirstNumber, String SecondNumber)
@@ -306,7 +309,7 @@ class Hex
 		 * method for checking whether first number is smaller than second number or not
 		 * @return true or false
 		 */
-		if(Compare(FirstNumber,SecondNumber))
+		if(Compare(FirstNumber,SecondNumber)==1)
 		{
 			return true;
 		}
@@ -388,7 +391,10 @@ public class HexCalc {
 								break;
 						case 4: System.out.println("result: "+HexObject.Multiplication(FirstNumber, SecondNumber));
 								break;
-						case 5: System.out.println("result: "+HexObject.Divide(FirstNumber, SecondNumber));
+						case 5: try
+								{System.out.println("result: "+HexObject.Divide(FirstNumber, SecondNumber));}
+								catch(ArithmeticException e)
+								{System.out.println(e.getMessage());}
 								break;
 						case 6: System.out.println("result: "+HexObject.IsGreater(FirstNumber,SecondNumber));
 								break;
