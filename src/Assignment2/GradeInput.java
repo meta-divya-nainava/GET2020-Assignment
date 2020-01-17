@@ -16,7 +16,17 @@ public class GradeInput {
 		{
 		System.out.println("Enter total number of students");
 		size= input.nextInt();
+		if(size<=0)
+		{
+			throw new ArithmeticException();
+		}
 		return size;
+		}
+		catch(ArithmeticException e)
+		{
+			System.out.println("please enter number greater than zero");
+			input.nextLine();
+			return getSize();
 		}
 		catch(Exception e)
 		{
@@ -24,8 +34,9 @@ public class GradeInput {
 			input.nextLine();
 			return getSize();
 		}
+		
 	}
-	public float [] getArr(int size,int n)
+	public float [] getGrade(int size,int n)
 	{
 		/*
 		 * method for taking array elements
@@ -50,7 +61,7 @@ public class GradeInput {
 		{
 			System.out.println("please enter valid element in array");
 			input.nextLine();
-			return getArr(size,itr);
+			return getGrade(size,itr);
 		}
 	}
 	public int getChoice()

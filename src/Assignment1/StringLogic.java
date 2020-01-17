@@ -3,7 +3,7 @@ package Assignment1;
 import java.util.Scanner;
 
 public class StringLogic {
-	public boolean compareString(String firstString, String secondString)
+	public int compareString(String firstString, String secondString)
 	{
 		/*
 		 * method for comparing two strings's equality
@@ -11,22 +11,24 @@ public class StringLogic {
 		 * @param secondString contains value for second string
 		 * @return boolean true if matches else false
 		 */
+		System.out.println(firstString+ secondString);
 		if(firstString.length()<secondString.length() ||firstString.length()>secondString.length() )
 		{
-			return false;
+			System.out.println("if m aaya");
+			return 0;
 		}
 		else
 		{
 			for(int itr=0; itr<firstString.length();itr++)
 			{
-				if(firstString.charAt(itr)==secondString.charAt(itr) || firstString.charAt(itr)==(secondString.charAt(itr)-32)
-						||firstString.charAt(itr)==secondString.charAt(itr)+32)
+				if(firstString.charAt(itr)!=secondString.charAt(itr) )
 				{
-					return true;
+					System.out.println("else if m aaya");
+					return 0;
 				}
 			}
-			return false;
-	}
+		}
+		return 1;
 		
 	}
 	public String reverse(String firstString)
@@ -42,7 +44,6 @@ public class StringLogic {
 		{
 			reverseString=reverseString+firstString.charAt(itr);
 		}
-		System.out.println(reverseString);
 		return reverseString;
 	}
 	public String replace(String firstString)

@@ -33,7 +33,6 @@ public class StringOperation
 					+"4.Display largest word of a string"+"\n"+
 					"0 Exit");
 			int choice = input.getChoice();
-			System.out.println("c"+choice);
 			switch(choice)
 			{
 				case 1: firstString=input.getString();

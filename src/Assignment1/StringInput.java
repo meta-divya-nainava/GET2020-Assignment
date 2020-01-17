@@ -13,9 +13,7 @@ public class StringInput {
 		 * @return firstString
 		 */
 		System.out.println("Enter String:");
-		input.nextLine();
-		String firstString=input.nextLine();
-		return firstString;
+		return input.next();
 	}
 	public int getChoice()
 	{

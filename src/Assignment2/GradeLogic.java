@@ -9,12 +9,20 @@ public class GradeLogic {
 		 * @param sum sum of all elements in arr
 		 * @return float sum/size
 		 */
+		try
+		{
 		float sum=0;
 		for(int itr=0; itr<size;itr++)
 		{
 			sum+=arr[itr];
 		}
 		return (sum/size);
+		}
+		catch(ArithmeticException e)
+		{
+			System.out.println("Airthmetic exception");
+			return 0;
+		}
 	}
 	public float maximumGrade(float[] arr,int size)
 	{
@@ -45,7 +53,11 @@ public class GradeLogic {
 		 * @param min minimum value
 		 * @return float min
 		 */
-		float min=arr[0];
+		float min=100;
+		if(size==0)
+		{
+			min=0;
+		}
 		for(int itr=0; itr<size;itr++)
 		{
 			if(arr[itr]<=min)
@@ -67,6 +79,8 @@ public class GradeLogic {
 		 * @param count value of passed students
 		 * @return float percentage
 		 */
+		try
+		{
 		int count=0;
 		float percentage;
 		for(int itr=0; itr<size;itr++)
@@ -76,9 +90,14 @@ public class GradeLogic {
 				count++;
 			}
 		}
-		System.out.println(count);
 	    percentage=(float)((count*100)/size);
 		return percentage;
+		}
+		catch(ArithmeticException e )
+		{
+			System.out.println("Airthmetic Exception");
+			return 0;
+		}
 	}
 
 }

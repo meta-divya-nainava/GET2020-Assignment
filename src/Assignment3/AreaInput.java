@@ -80,7 +80,6 @@ public class AreaInput {
 		{
 			System.out.println("Invalid choice please enter another choice");
 			input.nextLine();
-			getChoice();
 			return getChoice();//issue
 		}
 	}

@@ -33,7 +33,7 @@ public class Marksheet {
 				"0 Exit");
 		switch(input.getChoice())
 		{
-			case 1: arr=input.getArr(size,0);
+			case 1: arr=input.getGrade(size,0);
 					break;	
 			case 2: System.out.printf("%.2f",logicObject.average(arr,size));
 					System.out.println();
