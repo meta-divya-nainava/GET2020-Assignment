@@ -41,6 +41,7 @@ public class Cart {
 				int total_price=Calculate_price(local_item_name,local_quantity);
 				Item new_cart_item= new Item(local_item_name,total_price);
 				item_list.put(new_cart_item, local_quantity);
+				Stock.update_stock(local_item_name, local_quantity);
 				
 			}
 			else
@@ -171,6 +172,7 @@ public class Cart {
 				int new_quantity=item_list.get(iterator_key)+quantity;
 				item_list.replace(iterator_key, new_quantity);
 				iterator_key.price=Calculate_price(name,new_quantity);
+				Stock.update_stock(name ,quantity);
 			}
 		}
 		
@@ -187,6 +189,7 @@ public class Cart {
 				int new_quantity=item_list.get(iterator_key)-quantity;
 				item_list.replace(iterator_key, new_quantity);
 				iterator_key.price=Calculate_price(name,new_quantity);
+				Stock.update_stock(name ,-quantity);
 			}
 		}
 		
@@ -204,7 +207,6 @@ public class Cart {
 			if(local_item_name.equalsIgnoreCase(iterator_key.item_name))
 			{
 				total_price=iterator_key.price*local_quantity;
-				Stock.update_stock(iterator_key, local_quantity);
 				return total_price;
 			}
 		}

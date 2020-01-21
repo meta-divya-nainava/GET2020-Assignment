@@ -47,7 +47,7 @@ public class Stock {
 	{
 		return stock_list;
 	}
-	public static void update_stock(Item item, int quantity)
+	public static void update_stock(String itemName, int quantity)
 	{
 		/*
 		 * method for updating  quantity of item in stock after purchasing that item
@@ -56,7 +56,7 @@ public class Stock {
 		 */
 		for(Item iterator_key:stock_list.keySet())
 		{
-			if(iterator_key.equals(item))
+			if(iterator_key.item_name.equalsIgnoreCase(itemName))
 			{
 				int new_quantity=stock_list.get(iterator_key)-quantity;
 				stock_list.replace(iterator_key, new_quantity);
