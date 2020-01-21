@@ -11,10 +11,8 @@ public class StringLogic {
 		 * @param secondString contains value for second string
 		 * @return boolean true if matches else false
 		 */
-		System.out.println(firstString+ secondString);
 		if(firstString.length()<secondString.length() ||firstString.length()>secondString.length() )
 		{
-			System.out.println("if m aaya");
 			return 0;
 		}
 		else
@@ -23,7 +21,6 @@ public class StringLogic {
 			{
 				if(firstString.charAt(itr)!=secondString.charAt(itr) )
 				{
-					System.out.println("else if m aaya");
 					return 0;
 				}
 			}
