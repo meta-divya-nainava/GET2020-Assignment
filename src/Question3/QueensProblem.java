@@ -56,21 +56,20 @@ public class QueensProblem {
 			return true;
 		}
 		for (int i = 0; i < dimensionOfChess; i++) {
-			if (checkIfQueenCanBePlaced(chessBoard, i, column,
-					dimensionOfChess)) {
-				chessBoard[i][column] = 1;
-				if (solveQueen(chessBoard, column + 1, dimensionOfChess)) {
-					return true;
+			if (checkIfQueenCanBePlaced(chessBoard, i, column, dimensionOfChess)) {
+					chessBoard[i][column] = 1;
+					if (solveQueen(chessBoard, column + 1, dimensionOfChess)) {
+						return true;
+					}
+					chessBoard[i][column] = 0;
 				}
-				chessBoard[i][column] = 0;
 			}
-		}
 		return false;
 
 	}
 
-	public static Boolean checkIfQueenCanBePlaced(int[][] chessBoard,
-			int row, int column, int dimensionOfChess) {
+	public static Boolean checkIfQueenCanBePlaced(int[][] chessBoard, int row,
+			int column, int dimensionOfChess) {
 		/*
 		 * Method to check if queen can be placed in the cell.
 		 * 
@@ -83,18 +82,19 @@ public class QueensProblem {
 		 * @param dimensionOfChess is the value of the number of rows/columns in
 		 * the matrix.
 		 */
-
+		// check in left side
 		for (int i = 0; i < column; i++) {
 			if (chessBoard[row][i] == 1) {
 				return false;
 			}
 		}
+		// lower left diagonal
 		for (int i = row, j = column; i < dimensionOfChess && j >= 0; i++, j--) {
 			if (chessBoard[i][j] == 1) {
 				return false;
 			}
 		}
-
+		// upper left diagonal
 		for (int i = row, j = column; i >= 0 && j >= 0; i--, j--) {
 			if (chessBoard[i][j] == 1) {
 				return false;

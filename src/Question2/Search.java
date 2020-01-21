@@ -4,10 +4,9 @@ package Question2;
  */
 
 public class Search {
-	static int iterator;
 
-	public  static int linearSearch(int[] userInputArray, int elementToBeSearched)
-			throws Exception{
+	public  static int linearSearch(int[] userInputArray, int elementToBeSearched,int iterator)
+		{
 		/*
 		 * Method to find the index of the element entered as input by the user.
 		 * 
@@ -22,17 +21,22 @@ public class Search {
 		 * 
 		 * @throw exception if length of array is zero.
 		 */
-		if (userInputArray.length == 0) {
-			throw new Exception("Array is empty.");
-		}
+		
 		if (userInputArray[iterator] == elementToBeSearched) {
 			return iterator+1;
 		} else if (iterator != (userInputArray.length - 1)) {
 			iterator++;
-			return linearSearch(userInputArray, elementToBeSearched);
+			return linearSearch(userInputArray, elementToBeSearched,iterator);
 		} else {
 			return -1;
 		}
+	}
+	public static int linearSearch(int[] userInputArray,int elementToBeSearched) throws Exception
+	{
+		if (userInputArray.length == 0) {
+			throw new Exception("Array is empty.");
+		}
+		return linearSearch(userInputArray,elementToBeSearched, 0);
 	}
 
 	public static int binarySearch(int[] userInputArray, int elementToBeSearched)

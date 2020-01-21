@@ -1,4 +1,7 @@
 package Question1;
+/* @author Divya Nainava
+ * @date 20-01-2020
+ */
 
 public class Math {
 	public static int HCF(int firstNumber, int secondNumber) throws Exception
@@ -9,12 +12,7 @@ public class Math {
 		* @return the HCF of the numbers.
 		* @throw exception if both of the two inputs are "0" because their HCF is not defined.
 		*/
-		if (firstNumber == 0){
-		return secondNumber;
-		}
-		if (secondNumber == 0) {
-		return firstNumber;
-		}
+		
 		if ((firstNumber == 0) && (secondNumber == 0) || firstNumber<0 || secondNumber<0) {
 		throw new Exception("Input should be a positive number.");
 		}
