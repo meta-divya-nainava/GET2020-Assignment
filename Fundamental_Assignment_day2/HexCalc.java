@@ -261,7 +261,7 @@ class Hex
 		return true;
 		
 	}
-	public int Compare(String FirstNumber, String SecondNumber)
+	public boolean Compare(String FirstNumber, String SecondNumber)
 	{
 		/*
 		 * method for comparing two hexadecimal numbers 
@@ -270,11 +270,11 @@ class Hex
 		int flag=1;
 		if(FirstNumber.length()<SecondNumber.length())
 		{
-			flag=1;
+			return true;
 		}
 		else if(FirstNumber.length()>SecondNumber.length())
 		{
-			flag=0;
+			return false;
 		}
 		else
 		{
@@ -282,19 +282,19 @@ class Hex
 			{
 				if(FirstNumber.charAt(itr)>SecondNumber.charAt(itr))
 				{
-					flag=0 ;
+					return false;
 				}
 			}
+			return true;
 		}
-		return flag;
 	}
-	public boolean IsGreater(String FirstNumber, String SecondNumber)
+/*	public boolean IsGreater(String FirstNumber, String SecondNumber)
 	{
 		/*
 		 * method for checking whether first number is greater than second number or not
 		 * @return true or false
 		 */
-		if(Compare(FirstNumber,SecondNumber)==0)
+		/*if(Compare(FirstNumber,SecondNumber)==0)
 		{
 			return true;
 		}
@@ -309,7 +309,7 @@ class Hex
 		 * method for checking whether first number is smaller than second number or not
 		 * @return true or false
 		 */
-		if(Compare(FirstNumber,SecondNumber)==1)
+	/*	if(Compare(FirstNumber,SecondNumber)==1)
 		{
 			return true;
 		}
@@ -317,21 +317,21 @@ class Hex
 		{
 			return false;
 		}
-	}
+	} */
 	public boolean IsEqual(String FirstNumber, String SecondNumber)
 	{
 		/*
 		 * method for checking whether both number are equal or not
 		 * @return true or false
 		 */
-		if(!(IsGreater(FirstNumber,SecondNumber)&& IsSmaller(FirstNumber,SecondNumber)))
+		for(int itr=0; itr<SecondNumber.length(); itr++)
 		{
-			return true;
+			if(FirstNumber.charAt(itr)!=SecondNumber.charAt(itr))
+			{
+				return false;
+			}
 		}
-		else
-		{
-			return false;
-		}
+		return true;
 	}
 
 }
@@ -396,9 +396,9 @@ public class HexCalc {
 								catch(ArithmeticException e)
 								{System.out.println(e.getMessage());}
 								break;
-						case 6: System.out.println("result: "+HexObject.IsGreater(FirstNumber,SecondNumber));
+						case 6: System.out.println("result: "+HexObject.Compare(FirstNumber,SecondNumber));
 								break;
-						case 7: System.out.println("result: "+HexObject.IsSmaller(FirstNumber, SecondNumber));
+						case 7: System.out.println("result: "+HexObject.Compare(FirstNumber, SecondNumber));
 								break;
 						case 8: System.out.println("result: "+HexObject.IsEqual(FirstNumber, SecondNumber));
 								break;
