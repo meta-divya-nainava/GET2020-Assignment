@@ -12,17 +12,35 @@ public class intSetTest {
 
 	@Test(expected=AssertionError.class)
 	public void throwsAssertionErrorIfSetIsEmpty(){
+		try
+		{
 		intSet intSet=new intSet(new int[]{});
+		}
+		catch(Exception e)
+		{
+			assertEquals("Set Empty",e.getMessage());
+		}
 	}
 	
 	@Test(expected=AssertionError.class)
 	public void throwsAssertionErrorIfSetHasRepeatedElements(){
-		intSet intSet=new intSet(new int[]{1,3,2,2,4});
+		try{
+		intSet intSet=new intSet(new int[]{1,3,2,2,4});}
+		catch(Exception e)
+		{
+			assertEquals("elements are not in range",e.getMessage());
+		}
 	}
 	
 	@Test(expected=AssertionError.class)
 	public void throwsAssertionErrorIfSetIsNotInRange(){
-		intSet intSet=new intSet(new int[]{1,3,5,1111});
+		try{
+		intSet intSet=new intSet(new int[]{1,3,5,1111});}
+		catch(Exception e)
+		{
+			assertEquals("repeated Elements Are Not Allowed",e.getMessage());
+		}
+		
 	}
 	@Test
 	public void isMemberTest(){
@@ -35,7 +53,7 @@ public class intSetTest {
 		intSet intSet=new intSet(new int[]{1,3,5,8,12,15,18,40});
 		assertEquals(true,intSet.isSubSet(new intSet(new int[]{8,15})));
 		assertEquals(true,intSet.isSubSet(new intSet(new int[]{8,15,40})));
-		assertEquals(true,intSet.isSubSet(new intSet(new int[]{1,3,5,8,12,15,18,40})));
+		assertEquals(false,intSet.isSubSet(new intSet(new int[]{9})));
 	}
 	@Test
 	public void complimentTest(){
@@ -46,10 +64,6 @@ public class intSetTest {
 			if(!(intSet.isMember(i+1))){
 				expectedArray[j]=i+1;
 				j++;}		
-		}
-		int[] arra=intSet.compliment().getSetArray();
-		for(int i=0;i<arra.length;i++){
-			//System.out.println("test"+arra[i]);
 		}
 		assertArrayEquals(expectedArray,(intSet.compliment()).getSetArray());
 	}

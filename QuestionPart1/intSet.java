@@ -24,9 +24,6 @@ public final class intSet {
 			throw new AssertionError("elements are not in range");
 		}
 		boolean[] markEnteredValues = new boolean[1001];
-		for (int iterator = 1; iterator <= 1000; iterator++) {
-			markEnteredValues[iterator] = false;
-		}
 		// checks repeated elements exist or not
 		for (int iterator = 0; iterator < setArray.length; iterator++) {
 			if (markEnteredValues[setArray[iterator]]) {
@@ -70,21 +67,14 @@ public final class intSet {
 	 *            type set
 	 * @return true if s is a subset o existing set otherwise false
 	 */
-	public boolean isSubSet(intSet s) {
-		int setArrayMarker = 0;
-		for (int iterator1 = 0; iterator1< s.size(); iterator1++) {
-			for (int iterator2 = setArrayMarker; iterator2 < size()	&& s.setArray[iterator1] < setArray[iterator2]; iterator2++) {
-				if (s.setArray[iterator1] == setArray[iterator2]) {
-					setArrayMarker = iterator2;
-					break;
-				}
-				if (iterator2 == size() - 1) {
-					System.out.println(iterator2);
-					return false;
-				}
+	public boolean isSubSet(intSet subSet) {
+		for (int iterator = 0; iterator < subSet.size(); iterator++) {
+			if (!isMember(subSet.setArray[iterator])) {
+				return false;
 			}
 		}
 		return true;
+		
 	}
 
 	/**
@@ -167,11 +157,11 @@ public final class intSet {
 	 * @return set of array
 	 */
 	public int[] getSetArray() {
-		int[] setArray = new int[this.setArray.length];
-		for (int iterator = 0; iterator < setArray.length; iterator++) {
-			setArray[iterator] = this.setArray[iterator];
-		}
 		return setArray;
+	}
+	public static void main(String args[])
+	{
+		
 	}
 
 }
