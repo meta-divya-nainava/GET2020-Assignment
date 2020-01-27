@@ -5,38 +5,23 @@ public class InputData {
 	Scanner in=new Scanner(System.in);
 	public String getCategory()
 	{
-		System.out.println("Enter animal Category from following list:\n Mammal\nBird\nReptile");
-		try
-		{
+		System.out.println("Enter animal Category from following list:\nMammal\nBird\nReptile");
 		String category=in.next();
 		if(category.equalsIgnoreCase("bird")||category.equalsIgnoreCase("reptile")||category.equalsIgnoreCase("mammal"))
 		return category;
 		else
 		{
-			throw new Exception();
-		}
-		}
-		catch(Exception e)
-		{
 			System.out.println("entered category does not match");
 			return getCategory();
 		}
-		
 	}
 	public String getName()
 	{
 		System.out.println("Enter animal name or type form list:\nSnake\nLion\nPiegon");
-		try
-		{
 		String name=in.next();
 		if(name.equalsIgnoreCase("lion")||name.equalsIgnoreCase("snake")||name.equalsIgnoreCase("piegon"))
 		return name;
 		else
-		{
-			throw new Exception();
-		}
-		}
-		catch(Exception e)
 		{
 			System.out.println("entered animal name does not match");
 			return getName();

@@ -46,7 +46,7 @@ import java.util.ArrayList;
 	 * @param category the zone category
 	 * @return the zone else null
 	 */
-	public Zone foundZone(String category)
+	public Zone checkZone(String category)
 	{
 		for(int itr=0; itr<zoneList.size();itr++)
 		{
@@ -73,9 +73,9 @@ import java.util.ArrayList;
 		String animalName=animalNameLocal;
 		int animalWeight= weight;
 		int animalAge= age;
-		if(foundZone(category)!=null)
+		if(checkZone(category)!=null)
 		{
-			if(foundZone(category).foundCage(animalName)!=null)
+			if(checkZone(category).checkCage(animalName)!=null)
 			{
 				Animal animalToBeAdded=null;
 				if(animalName.equalsIgnoreCase("Lion"))
@@ -90,7 +90,7 @@ import java.util.ArrayList;
 				{
 					 animalToBeAdded=new Piegon(animalName,animalWeight,animalAge);
 				}
-				return (foundZone(category).foundCage(animalName).addAnimalToCage(animalToBeAdded));
+				return (checkZone(category).checkCage(animalName).addAnimalToCage(animalToBeAdded));
 			}
 			else
 			{
@@ -103,7 +103,7 @@ import java.util.ArrayList;
 				switch(choice)
 				{
 					case 1: int capacity=input.getCapacity();
-							foundZone(category).addCage(animalName, capacity);
+							checkZone(category).addCage(animalName, capacity);
 							return addAnimal(category,animalName,animalWeight,animalAge);
 					case 2: System.out.println("Thank you");
 							return false;
@@ -148,11 +148,11 @@ import java.util.ArrayList;
 		String category= category1;
 		String animalName=name;
 		int animalId=id;
-		if(foundZone(category)!=null)
+		if(checkZone(category)!=null)
 		{
-			if(foundZone(category).foundCage(animalName)!=null)
+			if(checkZone(category).checkCage(animalName)!=null)
 			{
-				foundZone(category).foundCage(animalName).removeFromCage(animalId);
+				checkZone(category).checkCage(animalName).removeFromCage(animalId);
 				return true;
 			}
 			else
