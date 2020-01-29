@@ -46,7 +46,7 @@ import java.util.ArrayList;
 	 * @param category the zone category
 	 * @return the zone else null
 	 */
-	public Zone checkZone(String category)
+	public Zone isZoneExist(String category)
 	{
 		for(int itr=0; itr<zoneList.size();itr++)
 		{
@@ -73,9 +73,11 @@ import java.util.ArrayList;
 		String animalName=animalNameLocal;
 		int animalWeight= weight;
 		int animalAge= age;
-		if(checkZone(category)!=null)
+		Zone ExistZone=isZoneExist(category);
+		Cage ExistCage=ExistZone.isCageExist(animalName);
+		if(ExistZone!=null)
 		{
-			if(checkZone(category).checkCage(animalName)!=null)
+			if(ExistCage!=null)
 			{
 				Animal animalToBeAdded=null;
 				if(animalName.equalsIgnoreCase("Lion"))
@@ -90,7 +92,7 @@ import java.util.ArrayList;
 				{
 					 animalToBeAdded=new Piegon(animalName,animalWeight,animalAge);
 				}
-				return (checkZone(category).checkCage(animalName).addAnimalToCage(animalToBeAdded));
+				return (ExistCage.addAnimalToCage(animalToBeAdded));
 			}
 			else
 			{
@@ -103,7 +105,7 @@ import java.util.ArrayList;
 				switch(choice)
 				{
 					case 1: int capacity=input.getCapacity();
-							checkZone(category).addCage(animalName, capacity);
+							ExistZone.addCage(animalName, capacity);
 							return addAnimal(category,animalName,animalWeight,animalAge);
 					case 2: System.out.println("Thank you");
 							return false;
@@ -136,7 +138,7 @@ import java.util.ArrayList;
 			}
 		}	
 	}
-	
+
 	/**
 	 * Death animal.
 	 *
@@ -144,15 +146,16 @@ import java.util.ArrayList;
 	 */
 	public boolean deathAnimal(String category1, String name, int id)
 	{
-		InputData input=new InputData();
 		String category= category1;
 		String animalName=name;
 		int animalId=id;
-		if(checkZone(category)!=null)
+		Zone ExistZone=isZoneExist(category);
+		Cage ExistCage=ExistZone.isCageExist(animalName);
+		if(ExistZone!=null)
 		{
-			if(checkZone(category).checkCage(animalName)!=null)
+			if(ExistCage!=null)
 			{
-				checkZone(category).checkCage(animalName).removeFromCage(animalId);
+				ExistCage.removeFromCage(animalId);
 				return true;
 			}
 			else

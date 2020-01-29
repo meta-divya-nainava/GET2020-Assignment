@@ -49,7 +49,7 @@ public class Zone {
 	 * @param cagetype type of cage
 	 * @return cage object if found else none
 	 */
-	public Cage checkCage(String cageType)
+	public Cage isCageExist(String cageType)
 	{
 		for(int itr=0; itr<cageList.size();itr++)
 		{

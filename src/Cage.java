@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 
 public class Cage {
-	private static int totalCapacity;
+	private int totalCapacity;
 	private int cageCount = 0;
-	private  String typeOfCage;
-	private static int noOfAnimal;
+	private String typeOfCage;
+	private int noOfAnimal;
 	private int cageId;
+	
 	
 	private static ArrayList<Animal> AnimalList = new ArrayList<Animal>();
 	
