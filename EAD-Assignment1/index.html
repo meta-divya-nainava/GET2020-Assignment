@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Metacube Parking System</title>
+
+
+    <script src=".js/js.js"></script>
+
+
+</head>
+
+<body>
+    <div class="main">
+
+        <section class="register">
+            <div class="container">
+                <fieldset>
+                    <legend id="formTitle" style="margin: auto; font-size: 20px; font-style: italic; color:  rgb(56, 54, 54);">Register for Metacube parking</legend>
+                    <div class="registration-content">
+                        <form id="registrationform" class="registration-form">
+                            <div class="group">
+                                <input type="text" class="form-input" name="name" id="name" placeholder="Your Name" required />
+
+                            </div>
+                            <div class="group">
+                                <input type="radio" name="gender" value="male" class="radio-button" checked>Male
+                                <input type="radio" name="gender" value="female" class="radio-button">Female
+                            </div>
+                            <div class="group">
+                                <input type="number" class="form-input" name="number" id="number" placeholder="Enter contact number" required>
+                            </div>
+                            <div class="group">
+                                <input type="email" class="form-input" name="email" id="email" placeholder="Your Email" required/>
+                            </div>
+                            <div class="group">
+                                <input type="password" class="form-input" name="password" id="password" placeholder="Password" required/>
+                                <p style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: -4px;">*Length should be greater than 8 characters."</p>
+                            </div>
+
+                            <div class="group">
+                                <input type="password" class="form-input" name="re_password" id="re_password" placeholder="confirm your password" required />
+                            </div>
+                            <div class="group">
+                                <input type="submit" name="submit" id="submit" class="form-submit" value="Register" onclick="return employeeRegister()" />
+                            </div>
+                            <p class="loginhere" style="color:rgb(56, 54, 54);">
+                                Have already an account ? <a href="#" class="loginhere-link">Login here</a>
+                            </p>
+                        </form>
+                        <form id="registrationform1" class="registration-form">
+                            <div class="group">
+                                <input type="text" class="form-input" name="employeeId" id="employeeId" />
+                            </div>
+                            <div class="group">
+                                <input type="text" class="form-input" name="name" id="vecname" placeholder="Vehicle Name" />
+                            </div>
+                            <div class="group">
+                                <select class="form-input" id="typeOfVehicle">
+                                        <option class="form-input" value="MotorCycle">MotorCycle</option>
+                                        <option  class="form-input" value="cycle"  >Cycle</option>
+                                        <option class="form-input" value="four-wheelers">Four-Wheelers</option>
+                                      </select>
+                            </div>
+                            <div class="group">
+                                <input type="number" class="form-input" name="number" id="vecnumber" placeholder="Enter vehicle number">
+                            </div>
+
+                            <div class="group">
+                                <textarea placeholder="describe vehicle identifications" class="form-input" id="identification"></textarea>
+                            </div>
+                            <div class="group">
+                                <input type="submit" name="submit" id="submit" class="form-submit" value="Get Passes" onclick="return vehicleRegister()" />
+                            </div>
+
+                        </form>
+                        <form class="registration-form" id="registrationform2">
+                            <div class="group">
+                                <input type="radio" name="passes" value="Daily" id="daily" checked>Daily
+                                <input type="text" name="name1" style="margin-left:30px; " id="Daily" disabled/>
+                            </div>
+                            <div class="group">
+                                <label>
+                                <input type="radio" name="passes" value="Monthly" id="monthly" >Monthly
+                                <input type="text" name="name1" style="margin-left:10px; " id="Monthly" disabled />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <input type="radio" name="passes" value="Yearly" id="yearly">Yearly
+                                <input type="text" name="name1" style="margin-left:24px; " id="Yearly" disabled/>
+                            </div>
+                            <div class="group">
+                                <input type="button" name="submit" id="submit" class="form-submit" value="Submit" onclick="getBill()" />
+                            </div>
+
+
+                        </form>
+                        <table id="detailTable" class="registration-form">
+                            <tr>
+                                <td class="data"> Name</td>
+                                <td id="employeename" class="data" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td class="data"> Contact details</td>
+                                <td id="contact" class="data" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td class="data"> Email </td>
+                                <td id="emailDetail" class="data" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td class="data"> Employee Id: </td>
+                                <td id="employeeId1" class="data" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td class="data"> Vehicle Name </td>
+                                <td id="vehicleName" class="data" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td class="data"> Vehicle Number</td>
+                                <td id="vehicleNumber" class="data" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" class="data"> Total Bill</td>
+                                <td class="data1">INR</td>
+                                <td class="data1">USD</td>
+                                <td class="data1">YEN</td>
+
+                            </tr>
+                            <tr>
+                                <td id="billINR" class="data1"></td>
+                                <td id="billUSD" class="data1"></td>
+                                <td id="billYEN" class="data1"></td>
+                            </tr>
+                        </table>
+
+                </fieldset>
+                </div>
+        </section>
+
+        </div>
+</body>
+
+</html>
