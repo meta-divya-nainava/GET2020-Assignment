@@ -55,26 +55,46 @@ function confirmPassValidate() {
 }
 
 function employeeRegister() {
+    var flag = 1;
 
     if (!nameValidate()) {
-        alert("Enter valid name. Name should be in format 'FirstName LastName'");
-        return false;
+        document.getElementById("nameAlert").style.display = "block";
+        flag = 0;
+    } else {
+        document.getElementById("nameAlert").style.display = "none";
     }
     if (!numberValidate()) {
-        alert("Enter valid number.Number should be of length 10.");
-        return false;
+        document.getElementById("numberAlert").style.display = "block";
+        flag = 0;
+
+    } else {
+        document.getElementById("numberAlert").style.display = "none";
     }
+
     if (!emailValidate()) {
-        alert("Enter valid email id");
-        return false;
+        document.getElementById("emailAlert").style.display = "block";
+        flag = 0;
+    } else {
+        document.getElementById("emailAlert").style.display = "none";
     }
+
     if (!passwordValidate()) {
-        alert("Enter valid password");
-        return false;
+        document.getElementById("passwordAlert").innerText = "Please enter valid password";
+        flag = 0;
+    } else {
+        document.getElementById("passwordAlert").innerText = "*Length should be greater than 8";
+
     }
+
     if (!confirmPassValidate()) {
-        alert("Password do not match!");
-        return false;
+        document.getElementById("confirmAlert").style.display = "block";
+        flag = 0;
+    } else {
+        document.getElementById("confirmAlert").style.display = "none";
+    }
+
+    if (flag == 0) {
+        return;
     } else {
         employeeId += 1;
         document.getElementById('registrationform').innerHTML = "";
@@ -105,12 +125,20 @@ function changeCurrency() {
 }
 
 function vehicleRegister() {
+    var flag = 1;
     if (!vehicleNameValidate()) {
-        alert("Enter valid vehicle name");
-        return false;
+        document.getElementById("vecNameAlert").style.display = "block";
+        flag = 0;
+    } else {
+        document.getElementById("vecNameAlert").style.display = "none";
     }
     if (!VehicleNumberValidate()) {
-        alert("Vehicle number length should be 4");
+        document.getElementById("vecNumberAlert").style.display = "block";
+        flag = 0;
+    } else {
+        document.getElementById("vecNumberAlert").style.display = "none";
+    }
+    if (flag == 0) {
         return false;
     } else {
         var vehicleType = document.getElementById("typeOfVehicle");
@@ -123,6 +151,15 @@ function vehicleRegister() {
 }
 const url = 'https://api.exchangerate-api.com/v4/latest/INR';
 
+
+function isValid() {
+    let value = document.getElementById("password").value;
+    if (value.length < 8) {
+        document.getElementById("password").style.border = "2px solid red";
+    } else {
+        document.getElementById("password").style.border = "2px solid green";
+    }
+}
 
 function getBill() {
     if (document.getElementById('daily').checked) {

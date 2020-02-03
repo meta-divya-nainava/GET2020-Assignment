@@ -6,7 +6,7 @@
     <title>Metacube Parking System</title>
 
 
-    <script src=".js/js.js"></script>
+    <script src="js/js.js"></script>
 
 
 </head>
@@ -22,25 +22,28 @@
                         <form id="registrationform" class="registration-form">
                             <div class="group">
                                 <input type="text" class="form-input" name="name" id="name" placeholder="Your Name" required />
-
+                                <p id="nameAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Please enter valid name</p>
                             </div>
                             <div class="group">
-                                <input type="radio" name="gender" value="male" class="radio-button" checked>Male
-                                <input type="radio" name="gender" value="female" class="radio-button">Female
+                                <input type="radio" name="gender" value="male" class="radio-button" checked/>Male
+                                <input type="radio" name="gender" value="female" class="radio-button" />Female
                             </div>
                             <div class="group">
-                                <input type="number" class="form-input" name="number" id="number" placeholder="Enter contact number" required>
+                                <input type="text" class="form-input" name="number" id="number" minlength="10" maxlength="10" placeholder="Enter contact number" required/>
+                                <p id="numberAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Please enter valid number</p>
                             </div>
                             <div class="group">
                                 <input type="email" class="form-input" name="email" id="email" placeholder="Your Email" required/>
+                                <p id="emailAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Please enter valid email</p>
                             </div>
                             <div class="group">
-                                <input type="password" class="form-input" name="password" id="password" placeholder="Password" required/>
-                                <p style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: -4px;">*Length should be greater than 8 characters."</p>
+                                <input type="password" class="form-input" name="password" id="password" placeholder="Password" onkeyup="isValid()" required/>
+                                <p id="passwordAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: -3px;">*Length should be greater than 8 characters."</p>
                             </div>
 
                             <div class="group">
                                 <input type="password" class="form-input" name="re_password" id="re_password" placeholder="confirm your password" required />
+                                <p id="confirmAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Password do not match</p>
                             </div>
                             <div class="group">
                                 <input type="submit" name="submit" id="submit" class="form-submit" value="Register" onclick="return employeeRegister()" />
@@ -55,6 +58,7 @@
                             </div>
                             <div class="group">
                                 <input type="text" class="form-input" name="name" id="vecname" placeholder="Vehicle Name" />
+                                <p id="vecNameAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Please enter valid vehicle number</p>
                             </div>
                             <div class="group">
                                 <select class="form-input" id="typeOfVehicle">
@@ -64,7 +68,8 @@
                                       </select>
                             </div>
                             <div class="group">
-                                <input type="number" class="form-input" name="number" id="vecnumber" placeholder="Enter vehicle number">
+                                <input type="text" class="form-input" name="number" id="vecnumber" minlength="4" maxlength="4" placeholder="Enter vehicle number">
+                                <p id="vecNumberAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Vehicle number should be of length 4.</p>
                             </div>
 
                             <div class="group">

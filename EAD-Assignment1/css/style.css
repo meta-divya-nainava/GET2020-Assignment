@@ -83,3 +83,27 @@ tr {
     font-style: italic;
     column-span: 1;
 }
+
+#nameAlert {
+    display: none;
+}
+
+#numberAlert {
+    display: none;
+}
+
+#emailAlert {
+    display: none;
+}
+
+#confirmAlert {
+    display: none;
+}
+
+#vecNameAlert {
+    display: none;
+}
+
+#vecNumberAlert {
+    display: none;
+}
