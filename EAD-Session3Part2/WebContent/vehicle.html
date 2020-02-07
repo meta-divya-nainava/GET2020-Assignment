@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Metacube Parking System</title>
+
+
+    <script src="javascript.js"></script>
+
+
+</head>
+
+<body>
+    <div class="main">
+
+        <section class="register">
+            <div class="container">
+                <fieldset>
+                    <legend id="formTitle" style="margin: auto; font-size: 20px; font-style: italic; color:  rgb(56, 54, 54);">Register for Metacube parking</legend>
+                    <div class="registration-content">
+                        <form id="registrationform1" class="registration-form">
+                            <div class="group">
+                                <input type="text" class="form-input" name="vecEmpId" id="employeeId" value=res.getAtrribute('empId')/>
+                            </div>
+                            <div class="group">
+                                <input type="text" class="form-input" name="name" id="vecname" placeholder="Vehicle Name" />
+                                <p id="vecNameAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Please enter valid vehicle number</p>
+                            </div>
+                            <div class="group">
+                                <select class="form-input" id="typeOfVehicle" name="type">
+                                        <option class="form-input" value="MotorCycle">MotorCycle</option>
+                                        <option  class="form-input" value="cycle"  >Cycle</option>
+                                        <option class="form-input" value="four-wheelers">Four-Wheelers</option>
+                                      </select>
+                            </div>
+                            <div class="group">
+                                <input type="text" class="form-input" name="number" id="vecnumber"  maxlength="4" placeholder="Enter vehicle number">
+                                <p id="vecNumberAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Vehicle number should be of length 4.</p>
+                            </div>
+
+                            <div class="group">
+                                <textarea placeholder="describe vehicle identifications" class="form-input" id="identification"></textarea>
+                            </div>
+                            <div class="group">
+                                <input type="submit" name="submit" id="submit" class="form-submit" value="Get Passes" onclick="return vehicleRegister()" />
+                            </div>
+
+                      </form>
+                  
+                        </div>
+
+                </fieldset>
+                </div>
+        </section>
+
+        </div>
+</body>
+
+</html>
