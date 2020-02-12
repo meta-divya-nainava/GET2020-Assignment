@@ -1,0 +1,109 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.registration-content {
+    border-radius: 10px;
+    padding: 20px 50px;
+    background: #629cdba6;
+}
+
+.group {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 100%;
+    border: 1px solid #ebebeb;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 500;
+    color: #222;
+}
+
+.form-submit {
+    width: 100%;
+    border-radius: 5px;
+    padding: 17px 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(233, 233, 233);
+    border: 1px solid #4ECDC4;
+    background-color: #556270;
+}
+
+fieldset {
+    padding: -20px;
+    border: 2px groove;
+    border-radius: 20px;
+}
+
+.radio-button {
+    margin-left: 40px;
+    font-size: 20px;
+    color: rgb(56, 54, 54);
+    margin-bottom: -10px;
+}
+
+#registrationform1 {
+    margin-top: 20px;
+    display: none;
+}
+
+#registrationform2 {
+    display: none;
+}
+
+#detailTable {
+    display: none;
+}
+
+table td,
+tr {
+    margin: auto;
+    border: 0.2px solid #ebebeb;
+    background: #fff;
+    padding: 20px 20px;
+}
+
+.data {
+    color: rgb(56, 54, 54);
+    font-size: 15px;
+    font-style: italic;
+    width: 100%;
+}
+
+.data1 {
+    color: rgb(56, 54, 54);
+    font-size: 15px;
+    font-style: italic;
+    column-span: 1;
+}
+
+#nameAlert {
+    display: none;
+}
+
+#numberAlert {
+    display: none;
+}
+
+#emailAlert {
+    display: none;
+}
+
+#confirmAlert {
+    display: none;
+}
+
+#vecNameAlert {
+    display: none;
+}
+
+#vecNumberAlert {
+    display: none;
+}
