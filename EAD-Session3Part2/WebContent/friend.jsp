@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-     <%@ page import="java.sql.*, com.EAD3.SetConnection" %>
+     <%@ page import="java.sql.*, com.EAD3.DatabaseQuery,com.EAD3.SetIntialData" %>
+     <%
+ SetIntialData object= new SetIntialData();
+object.removeCache(request, response);
+%>
 
 <!DOCTYPE html>
 <html>
@@ -31,18 +35,12 @@
                     <div class="registration-content">
                         <table id="detailTable" class="registration-form">
                                 <%
-  					
-  					Connection con=new SetConnection().setConnection();
-					java.sql.Statement state1= con.createStatement();
-					String query1= "select org from employee where empId='"+session.getAttribute("userId")+"'";
-					ResultSet rs1= state1.executeQuery(query1);
-					rs1.next();
-					String org=rs1.getString(1);
-					String query2="select empId,name from employee where org='"+org+"'";
-					rs1=state1.executeQuery(query2);
+                    DatabaseQuery queryObject=new DatabaseQuery();
 					out.println("<html><head> <link rel='stylesheet' href='style.css'><title>Hello</title></head>");
 					out.println("<body><div>");
 					out.println("<table>");
+					int userId=(int)session.getAttribute("userId");
+					ResultSet rs1=queryObject.showFriends(userId);
 					while(rs1.next())
 					{%>
                             <tr>

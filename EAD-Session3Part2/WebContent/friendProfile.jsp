@@ -9,31 +9,24 @@
 
 
 </head>
- <%@ page import="java.sql.*, com.EAD3.SetConnection" %>
+ <%@ page import="java.sql.*, com.EAD3.DatabaseQuery" %>
         <%
+       				DatabaseQuery queryObject=new DatabaseQuery();
         			String id=request.getParameter("friendId");
         			int userId=Integer.parseInt(id);
-  					//int userId=(int)session.getAttribute("userId");
-  					Connection con=new SetConnection().setConnection();
-					java.sql.Statement state1= con.createStatement();
-					String query1= "select * from employee where empId='"+userId+"'";
-					ResultSet rs1= state1.executeQuery(query1);
+					ResultSet rs1= queryObject.showEmployeeDetail(userId);
 					rs1.next();
 					String name= rs1.getString(2);
 					String contact=rs1.getString(6);
 					String email=rs1.getString(4);
 					int employeeId=rs1.getInt(1);
-					String query2= "select * from vehicleData where empId='"+userId+"'";
-					ResultSet rs2= state1.executeQuery(query2);
+					ResultSet rs2= queryObject.showVehicleDetail(userId);
 					rs2.next();
 					String vecName= rs2.getString(2);
 					String vecType=rs2.getString(3);
 					int price=rs2.getInt(4);
 					String plan=rs2.getString(5);
-					state1.close();
-					con.close();
-  
-					%>
+ 					%>
 
 <body>
 <header >

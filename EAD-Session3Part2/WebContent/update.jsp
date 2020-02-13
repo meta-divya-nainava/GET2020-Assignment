@@ -1,31 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-     <%@ page import="java.sql.*, com.EAD3.SetConnection" %>
+     <%@ page import="java.sql.*, com.EAD3.DatabaseQuery,com.EAD3.SetIntialData" %>
+     <%
+ SetIntialData object= new SetIntialData();
+object.removeCache(request, response);
+%>
         <%
+        			DatabaseQuery queryObject=new DatabaseQuery();
   					int userId=(int)session.getAttribute("userId");
-  					Connection con=new SetConnection().setConnection();
-					java.sql.Statement state1= con.createStatement();
-					String query1= "select * from employee where empId='"+userId+"'";
-					ResultSet rs1= state1.executeQuery(query1);
+					ResultSet rs1= queryObject.showEmployeeDetail(userId);
 					rs1.next();
 					String name= rs1.getString(2);
 					String contact=rs1.getString(6);
 					String email=rs1.getString(4);
 					int employeeId=rs1.getInt(1);
-					String query2= "select * from vehicleData where empId='"+userId+"'";
-					ResultSet rs2= state1.executeQuery(query2);
+					ResultSet rs2= queryObject.showVehicleDetail(userId);
 					rs2.next();
 					String vecName= rs2.getString(2);
 					String type=rs2.getString(3);
 					String identification=rs2.getString(6);
-					String query3= "select * from planData where vehicleType='"+type+"'";
-					ResultSet rs3= state1.executeQuery(query3);
+					ResultSet rs3=queryObject.showPlanDetail(type);
 					rs3.next();
 					int daily=rs3.getInt(2);
 					int monthly=rs3.getInt(3);
 					int yearly=rs3.getInt(4);
-					state1.close();
-					con.close();
   
 					%>
 <!DOCTYPE html>

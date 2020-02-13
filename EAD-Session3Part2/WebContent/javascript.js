@@ -122,31 +122,6 @@ function changeCurrency() {
 }
 var vehicleType;
 var selectedOption;
-/*function vehicleRegister() {
-	console.log("aaya");
-    var flag = 1;
-    if (!vehicleNameValidate()) {
-        document.getElementById("vecNameAlert").style.display = "block";
-        flag = 0;
-    } else {
-        document.getElementById("vecNameAlert").style.display = "none";
-    }
-    if (!VehicleNumberValidate()) {
-        document.getElementById("vecNumberAlert").style.display = "block";
-        flag = 0;
-    } else {
-        document.getElementById("vecNumberAlert").style.display = "none";
-    }
-    if (flag == 0) {
-        return false;
-    } else {*/
-    	
-       /*vehicleType = document.getElementById("typeOfVehicle");
-        selectedOption = vehicleType.options[vehicleType.selectedIndex].value;
-        return true;
-       // changeCurrency();*/
-const url = 'https://api.exchangerate-api.com/v4/latest/INR';
-
 
 function isValid() {
     let value = document.getElementById("password").value;
@@ -160,33 +135,3 @@ function isValid() {
 function getBill() {
     changeCurrency();
 }
-
-  /*  if (document.getElementById('daily').checked) {
-        price = document.getElementById('Daily').value;
-    } else if (document.getElementById('monthly').checked) {
-        price = document.getElementById('Monthly').value;
-    } else {
-        price = document.getElementById('Yearly').value;
-    }
-
-    /*document.getElementById('registrationform').innerHTML = "";
-    document.getElementById('registrationform1').innerHTML = "";*/
-   /* document.getElementById('employeename').innerText = fullName;
-    document.getElementById('contact').innerText = number;
-    document.getElementById('emailDetail').innerText = email;
-    document.getElementById('employeeId1').innerText = employeeId;
-    document.getElementById('vehicleName').innerText = vecName;
-    document.getElementById('vehicleNumber').innerText = vecNumber;
-   /* fetch(url)
-        .then(res =res.json()) //response type
-        .then(data => {
-            document.getElementById('billINR').innerText = price;
-            document.getElementById('billUSD').innerText = price * data["rates"]["USD"];
-            document.getElementById('billYEN').innerText = price * data["rates"]["JPY"];
-
-        });*/
-   /* document.getElementById('registrationform2').style.display = "none";
-    document.getElementById('detailTable').style.display = "block";
-    document.getElementById('formTitle').innerText = "Your Deatils";
-
-}*/

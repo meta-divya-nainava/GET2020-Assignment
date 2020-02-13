@@ -1,27 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-     <%@ page import="java.sql.*, com.EAD3.SetConnection, java.io.PrintWriter, javax.servlet.RequestDispatcher"%>
+     <%@ page import="java.sql.*, com.EAD3.DatabaseQuery, java.io.PrintWriter, javax.servlet.RequestDispatcher"%>
     <%
+    	DatabaseQuery queryObject=new DatabaseQuery();
     	String loginEmail=request.getParameter("loginEmail");
     	String loginPassword=request.getParameter("loginPassword");
-    	Connection con=new SetConnection().setConnection();
-    	java.sql.Statement state= con.createStatement();
-    	String query= "select EXISTS (select * from employee where email='"+loginEmail+"' AND password='"+loginPassword+"')";
-		ResultSet rs= state.executeQuery(query);
+    	ResultSet rs=queryObject.validCredential(loginEmail, loginPassword);
 		rs.next();
 		if(rs.getInt(1)==1)
 		{
-			query= "select empId from employee where email='"+loginEmail+"' AND password='"+loginPassword+"'";
-			ResultSet rs1= state.executeQuery(query);
-			rs1.next();
-			int userId=rs1.getInt(1);
-			session.setAttribute("userId", userId);
+			queryObject.setLoginDetails(request, loginEmail, loginPassword);
 			response.sendRedirect("home.jsp");
 			
 		}
 		else
 		{
-			 response.getWriter();
+			response.getWriter();
 			out.println("<script type=\"text/javascript\">");
 		    out.println("alert('Invalid credentials');");
 		    out.println("</script>");

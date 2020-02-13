@@ -40,7 +40,6 @@ function vehicleRegister() {
         return false;
     } else {
         return true;
-       // changeCurrency();*/
     }
 }
 </script>
@@ -48,10 +47,8 @@ function vehicleRegister() {
 <body>
 	<%
 		int Id=(int)request.getAttribute("empId");
-		System.out.println(Id);
 		request.setAttribute("Id", Id);
-		HttpSession session1= request.getSession();
-		session1.setAttribute("userId", Id);
+		session.setAttribute("userId", Id);
 	%>
 <div class="main">
 

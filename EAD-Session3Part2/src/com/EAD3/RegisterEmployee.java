@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.mysql.cj.xdevapi.Statement;
 @WebServlet ("/Register")
 public class RegisterEmployee extends HttpServlet {
+	DatabaseQuery queryObject=new DatabaseQuery();
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -39,10 +40,7 @@ public class RegisterEmployee extends HttpServlet {
 	private void addDetail(HttpServletRequest req, HttpServletResponse res,String name, String gender,String email, String password, String org, String phoneNo) throws SQLException, IOException, ServletException, ClassNotFoundException
 	{
 		
-		Connection con=new SetConnection().setConnection();
-		java.sql.Statement state= con.createStatement();
-		String query= "select EXISTS (select * from employee where email='"+email+"')";
-		ResultSet rs= state.executeQuery(query);
+		ResultSet rs=queryObject.validateEmail(email);
 		rs.next();
 		if(rs.getInt(1)==1)
 		{
@@ -57,22 +55,10 @@ public class RegisterEmployee extends HttpServlet {
 		}
 		else
 		{
-			PreparedStatement st= (PreparedStatement) con.prepareStatement("insert into employee (empId,name,gender,email,password,contactNo,org)values(empId,?,?,?,?,?,?)");
-			
-			st.setString(1,name);
-			st.setString(2,gender);
-			st.setString(3,email);
-			st.setString(4, password);
-			st.setString(5,phoneNo);
-			st.setString(6,org);
-			st.executeUpdate();
-			java.sql.Statement state1= con.createStatement();
-			String query1= "select empId  from employee where email='"+email+"'";
-			ResultSet rs1= state1.executeQuery(query1);
+			queryObject.insertEmployeeData(req, res, name, gender, email, password, phoneNo, org);
+			ResultSet rs1=queryObject.selectIdQuery(email);
 			rs1.next();
 			int empId1=rs1.getInt(1);
-			st.close();
-			con.close();
 			RequestDispatcher rd= req.getRequestDispatcher("vehicle.jsp");
 			req.setAttribute("empId", empId1);
 			rd.include(req, res);

@@ -1,30 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="java.sql.*, com.EAD3.SetConnection" %>
+    <%@ page import="java.sql.*,com.EAD3.DatabaseQuery" %>
         <%
-  
-  					Connection con=new SetConnection().setConnection();
-					PreparedStatement st= (PreparedStatement) con.prepareStatement("insert into vehicleData (empId,vehicleName,vehicleType,identification,vehicleNumber)values(?,?,?,?,?)");
-	
-					st.setInt(1,Integer.parseInt(request.getParameter("vecEmpId")));
-					System.out.println(request.getParameter("vecName"));
-					st.setString(2,request.getParameter("vecName"));
-					st.setString(3,request.getParameter("type"));
-					st.setString(4,request.getParameter("identification"));
-					st.setString(5,request.getParameter("vecNumber"));
-					st.executeUpdate();
-					st.close();
-					java.sql.Statement state1= con.createStatement();
-					String query1= "select * from planData where vehicleType='"+request.getParameter("type")+"'";
-					ResultSet rs1= state1.executeQuery(query1);
-					rs1.next();
+        			DatabaseQuery queryObject=new DatabaseQuery();
+  					String vecEmpId=request.getParameter(request.getParameter("vecEmpId"));
+        			String vecName=request.getParameter(request.getParameter("vecName"));
+        			String type=request.getParameter(request.getParameter("type"));
+        			String identification=request.getParameter(request.getParameter("identification"));
+        			String vecNumber=request.getParameter(request.getParameter("vecNumber"));
+        			ResultSet rs1=queryObject.insertVehicleData(vecEmpId, vecName, type, identification, vecNumber);
+                	rs1.next();
 					int daily=rs1.getInt(2);
 					int monthly=rs1.getInt(3);
 					int yearly=rs1.getInt(4);
-					state1.close();
-					con.close();
-  
-					%>
+  				%>
 <!DOCTYPE html>
 <html>
 
