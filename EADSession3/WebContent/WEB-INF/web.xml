@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>EADSession3</display-name>
+  <servlet>
+    <servlet-name>adddetail</servlet-name>
+    <servlet-class>com.details.AddStudentDetail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adddetail</servlet-name>
+    <url-pattern>/AddStudent</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>searchdetail</servlet-name>
+    <servlet-class>com.details.SearchStudentDetail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>searchdetail</servlet-name>
+    <url-pattern>/SearchStudent</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>showdetail</servlet-name>
+    <servlet-class>com.details.ShowStudentDetail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>showdetail</servlet-name>
+    <url-pattern>/showDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>updatedetail</servlet-name>
+    <servlet-class>com.details.UpdateDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updatedetail</servlet-name>
+    <url-pattern>/updateDetails</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>updatetable</servlet-name>
+    <servlet-class>com.details.UpdateTable</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updatetable</servlet-name>
+    <url-pattern>/updateTable</url-pattern>
+  </servlet-mapping>
+</web-app>

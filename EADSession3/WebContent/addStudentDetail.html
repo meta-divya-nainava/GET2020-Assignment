@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="studentDetail.js"></script>
+</head>
+<body>
+<header>
+<a href="addStudentDetail.html">Add student</a>
+<a href="showStudentDetail.html">Show student detail</a>
+<a href="searchStudentDetail.html">Search student detail</a>
+</header>
+<div style="margin : auto">
+<form method="post" action="AddStudent" name="form">
+<div>
+<input type="text" name="firstName" placeholder="enter your first name" required="required"/>
+  <p id="firstnameAlert" style="display:none">Please enter valid first name</p>
+</div>
+<div>
+<input type="text" name="lastName" placeholder="enter your last name" required="required"/></div>
+ <p id="lastnameAlert" style="display:none">Please enter valid last name</p>
+<div>
+<input type="text" name="fatherName" placeholder="enter your father's name" required="required"/>
+ <p id="fathernameAlert" style="display:none">Please enter valid father name</p>
+</div>
+<div>
+<input type="text" name="email" placeholder="enter your email" required="required"/>
+ <p id="emailAlert" style="display:none">Please enter valid email id</p>
+</div>
+<div>
+<input type="number" name="standard" placeholder="enter your class" max="12"  min="1" required="required"/>
+</div>
+<div>
+<input type="number" name="age" placeholder="enter your age" max="100" min="1" required="required"/>
+</div>
+<div>
+<input type="submit" name="submit" value="submit" onclick=" return register()"/>
+</div>
+</form>
+</div>
+
+</body>
+</html>
