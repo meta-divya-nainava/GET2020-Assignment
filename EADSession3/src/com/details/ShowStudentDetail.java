@@ -13,18 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class ShowStudentDetail extends HttpServlet {
+	DatabaseQuery queryObject=new DatabaseQuery();
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException
 	{
 		PrintWriter out = res.getWriter();
-		
-	
-		Connection con=setConnection();
-		HttpSession session = req.getSession();
 		try {
 			out.println("<html><head><title>Hello</title></head>");
-			String query="select * from students";
-			java.sql.Statement state= con.createStatement();
-			ResultSet rs=state.executeQuery(query);
+			ResultSet rs=queryObject.showData();
 			out.println("<body><header ><a href='addStudentDetail.html'>Add student</a><a href='showStudentDetail.html'>Show student detail</a><a href='searchStudentDetail.html'>Search student detail</a></header><div>");
 			out.println("<table>");
 			while(rs.next())
@@ -49,34 +44,6 @@ public class ShowStudentDetail extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
-			con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	private Connection setConnection()
-	{
-		String url="jdbc:mysql://localhost:3306/detail";
-		String uName="root";
-		String pass="root";
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			Connection con=DriverManager.getConnection(url,uName,pass);
-			return con;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-}
+}}
 	
 

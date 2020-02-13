@@ -13,10 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 
 import jdk.nashorn.internal.ir.ForNode;
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 public class AddStudentDetail extends HttpServlet {
+		DatabaseQuery queryObject=new DatabaseQuery();
 		public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException
 		{
+			
 			String firstName=req.getParameter("firstName");
 			String lastName=req.getParameter("lastName");
 			String fatherName=req.getParameter("fatherName");
@@ -28,15 +31,10 @@ public class AddStudentDetail extends HttpServlet {
 				if(addDetail(req,res,firstName,lastName,fatherName,email,std,age))
 				{
 					res.getWriter().println("Successfully added");
-					 /*rd= req.getRequestDispatcher("/addStudentDetail.html");
-				    rd.include(req, res);
-				    return*/ ;
 				}
 				else
 				{
 					res.getWriter().println("Operation failed");
-					/*rd= req.getRequestDispatcher("addStudentDetail.html");
-				     rd.include(req, res);*/
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -46,32 +44,9 @@ public class AddStudentDetail extends HttpServlet {
 			
 		}
 		
-		private Connection setConnection()
-		{
-			String url="jdbc:mysql://localhost:3306/detail";
-			String uName="root";
-			String pass="root";
-			try {
-				Class.forName("com.mysql.jdbc.Driver");
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			try {
-				Connection con=DriverManager.getConnection(url,uName,pass);
-				return con;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return null;
-		}
 		private boolean addDetail(HttpServletRequest req, HttpServletResponse res,String firstName, String lastName, String fatherName, String email, int std, int age) throws SQLException, IOException, ServletException
 		{
-			Connection con=setConnection();
-			java.sql.Statement state= con.createStatement();
-			String query= "select EXISTS (select * from students where email='"+email+"')";
-			ResultSet rs= state.executeQuery(query);
+			ResultSet rs=queryObject.validateEmail(email);
 			rs.next();
 			if(rs.getInt(1)==1)
 			{
@@ -83,28 +58,15 @@ public class AddStudentDetail extends HttpServlet {
 			       res.getWriter().println("email already exist.");
 			       RequestDispatcher rd= req.getRequestDispatcher("addStudentDetail.html");
 			       rd.include(req, res);
-			       return false;
-//			        
+			       return false;		        
 			    
 			}
 			else
 			{
-				PreparedStatement st= (PreparedStatement) con.prepareStatement("insert into students values(?,?,?,?,?,?)");
-				st.setString(1, firstName);
-				st.setString(2, lastName);
-				st.setString(3, fatherName);
-				st.setString(4, email);
-				st.setInt(5, std);
-				st.setInt(6, age);
-				st.executeUpdate();
-				st.close();
-				con.close();
-	
-				return true;
+				return queryObject.insertStudentData(req, res, firstName, lastName, fatherName, email, std, age);
 			}
-			
-		}
 		
-}
+		
+}}
 
 

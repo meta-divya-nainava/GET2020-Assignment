@@ -1,7 +1,4 @@
-/**
- * 
- */
-console.log("javaScript");
+
 function firstNameValidate() {
     fullName = document.form.firstName.value;
     console.log("pattern")
@@ -24,7 +21,6 @@ function emailValidate() {
     return emailPattern.test(email);
 }
 function register() {
-	console.log("javaScript");
     var flag = 1;
 
     if (!firstNameValidate()) {
@@ -54,7 +50,6 @@ function register() {
     } else {
         document.getElementById("emailAlert").style.display = "none";
     }
-    console.log("return="+flag);
     if (flag == 0) {
         return false;
     } else {
