@@ -1,4 +1,4 @@
-package LayeredArchitecture;
+package LayeredArchitecture.Facad;
 
 import java.util.Scanner;
 /**

@@ -1,4 +1,6 @@
-package LayeredArchitecture;
+package LayeredArchitecture.View;
+
+import LayeredArchitecture.Facad.Input;
 
 /**
  * The Class View.

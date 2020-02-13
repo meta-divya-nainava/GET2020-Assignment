@@ -1,4 +1,4 @@
-package LayeredArchitecture;
+package LayeredArchitecture.Dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

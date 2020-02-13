@@ -1,4 +1,4 @@
-package LayeredArchitecture;
+package LayeredArchitecture.Facad;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
+
+import LayeredArchitecture.Dao.Dao;
+import LayeredArchitecture.Model.Model;
 /**
  * The Class Facad.
  */

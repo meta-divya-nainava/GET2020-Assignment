@@ -1,4 +1,4 @@
-package LayeredArchitecture;
+package LayeredArchitecture.Dao;
 
 import java.awt.List;
 import java.sql.Connection;
@@ -9,6 +9,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import LayeredArchitecture.Facad.ProductItem;
+import LayeredArchitecture.Facad.cartItem;
+import LayeredArchitecture.Model.Model;
 
 /**
  * The Class Dao.

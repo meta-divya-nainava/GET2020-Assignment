@@ -1,4 +1,8 @@
-package LayeredArchitecture;
+package LayeredArchitecture.Model;
+
+import LayeredArchitecture.Facad.ProductItem;
+import LayeredArchitecture.Facad.cartItem;
+
 /**
  * The Class Model.
  */
