@@ -11,12 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class InventoryRepository {
-
-    private final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private final String DB_URL = "jdbc:mysql://localhost/Book";
-    private final String DB_user  = "root";
-    private final String DB_PASS = "root";
-    private Connection con = null;
+	 private Connection con = null;
     private Statement stm = null;
     private ResultSet rs = null;
     ArrayList<String> list = new ArrayList<String>();
@@ -28,9 +23,7 @@ public class InventoryRepository {
     
     public void connection(){
         try {
-            Class.forName(JDBC_DRIVER);
-            con = (Connection) DriverManager.getConnection(DB_URL, DB_user,
-                    DB_PASS);
+           con=new SetConnection().connection();
         } catch (Exception e) {
             System.out.println("Error : "+e.getMessage());
         }
@@ -40,6 +33,9 @@ public class InventoryRepository {
     }
 
     public void setDataEmployee(Inventory inventory) throws SQLException, IOException{
+    	try
+    	{
+    		connection();
         PreparedStatement ps = con
                 .prepareStatement("insert into Book(BookId, Title, Writer, Publisher, PublisherYear) values(?,?,?,?,?)");
         ps.setInt(1, inventory.getId());
@@ -48,10 +44,18 @@ public class InventoryRepository {
         ps.setString(4, inventory.getPublisher());
         ps.setString(5, inventory.getPublisherYear());
         ps.executeUpdate();
+    	}
+    	finally
+    	{
+    		con.close();
+    	}
         
     }
     
     public ArrayList<Inventory> information() throws SQLException{
+    	try
+    	{
+    		connection();
         stm = null;        
         stm = (Statement) con.createStatement();
         String strQuery = "SELECT * FROM Book";
@@ -68,9 +72,17 @@ public class InventoryRepository {
         }
         
         return inventories;
+    	}
+    	finally
+    	{
+    		con.close();
+    	}
     }
     
     public ArrayList<Inventory> selectInfromation(String title) throws SQLException{
+    	try
+    	{
+    		connection();
         stm = null;        
         stm = (Statement) con.createStatement();
         String strQuery = "SELECT * FROM Book where Title = '"+title+"'";
@@ -87,9 +99,17 @@ public class InventoryRepository {
         }
         
         return inventories;
+    	}
+    	finally
+    	{
+    		con.close();
+    	}
     }
     
     public void updateBook(Inventory inventory, String title) throws SQLException, IOException{
+    	try
+    	{
+    		connection();
         PreparedStatement ps = con
                 .prepareStatement("update Book set BookId = ?, Title = ?, Writer = ?, Publisher = ?, PublisherYear = ?"
                         + "where Title = ?");
@@ -100,22 +120,39 @@ public class InventoryRepository {
         ps.setString(5, inventory.getPublisherYear());
         ps.setString(6, title);
         ps.executeUpdate();
+    	}
+    	finally
+    	{
+    		con.close();
+    	}
      }
     public void deleteAll() throws SQLException{
+    	try
+    	{
+    		connection();
         PreparedStatement ps = con
                 .prepareStatement("delete from Book");
         ps.executeUpdate();
+    	}
+    	finally
+    	{
+    		con.close();
+    	}
     }
     
     public void deleteBook(int id) throws SQLException{
+    	try
+    	{
+    		connection();
         PreparedStatement ps = con
                 .prepareStatement("delete from Book where BookId = ?");
         ps.setInt(1, id);
         ps.executeUpdate();
-    }
-    
-    public void close() throws SQLException{
-        con.close();
+    	}
+    	finally
+    	{
+    		con.close();
+    	}
     }
 }
 

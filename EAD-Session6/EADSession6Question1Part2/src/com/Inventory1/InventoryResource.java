@@ -23,51 +23,79 @@ public class InventoryResource{
     
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public ArrayList<Inventory> getInventories() throws SQLException
+    public ArrayList<Inventory> getInventories() 
     {
-        repo.connection();
-        return repo.information();
+        try {
+			return repo.information();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
     }
 
     @GET
     @Path("/{title}")
     @Produces({MediaType.APPLICATION_JSON})
-    public ArrayList<Inventory> getInventory(@PathParam("title") String name) throws SQLException
+    public ArrayList<Inventory> getInventory(@PathParam("title") String name)
     {
-            repo.connection();
-            return repo.selectInfromation(name);
+            try {
+				return repo.selectInfromation(name);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
     }
 
     @POST
-    public void createInventory(Inventory object) throws SQLException, IOException
+    public void createInventory(Inventory object) throws  IOException
     {
-        repo.connection();
-        repo.setDataEmployee(object);
+        try {
+			repo.setDataEmployee(object);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     @PUT
     @Path("/{title}")
     @Produces({MediaType.APPLICATION_JSON})
-    public void updateInventory( @PathParam("title") String name ,Inventory object) throws SQLException, IOException
+    public void updateInventory( @PathParam("title") String name ,Inventory object) throws  IOException
     {
-        repo.connection();
-        repo.updateBook(object, name);
+       
+        try {
+			repo.updateBook(object, name);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     @DELETE
-    public void deleteInventory() throws SQLException
+    public void deleteInventory() 
     {
-        repo.connection();
-        repo.deleteAll();
+        
+        try {
+			repo.deleteAll();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
             
     }
    
     @DELETE
     @Path("/{name}")
-    public void deleteBook(@PathParam("name") int id) throws SQLException
+    public void deleteBook(@PathParam("name") int id) 
     {
-        repo.connection();
-        repo.deleteBook(id);
+        try {
+			repo.deleteBook(id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
 }
