@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Metacube Parking System</title>
+
+
+    <script src="javascript.js"></script>
+
+
+</head>
+
+<body>
+    <div class="main">
+
+        <section class="register">
+            <div class="container">
+                <fieldset>
+                    <legend id="formTitle" style="margin: auto; font-size: 20px; font-style: italic; color:  rgb(56, 54, 54);">Register for Metacube parking</legend>
+                    <div class="registration-content">
+                        <form class="registration-form" id="registrationform2">
+                            <div class="group">
+                                <input type="radio" name="passes" value="Daily" id="daily" checked>Daily
+                                <input type="text" name="name1" style="margin-left:30px; " id="Daily" disabled/>
+                            </div>
+                            <div class="group">
+                                <label>
+                                <input type="radio" name="passes" value="Monthly" id="monthly" >Monthly
+                                <input type="text" name="name1" style="margin-left:10px; " id="Monthly" disabled />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <input type="radio" name="passes" value="Yearly" id="yearly">Yearly
+                                <input type="text" name="name1" style="margin-left:24px; " id="Yearly" disabled/>
+                            </div>
+                            <div class="group">
+                                <input type="button" name="submit" id="submit" class="form-submit" value="Submit" onclick="getBill()" />
+                            </div>
+						</form>
+                        </div>
+
+                </fieldset>
+                </div>
+        </section>
+
+        </div>
+</body>
+
+</html>

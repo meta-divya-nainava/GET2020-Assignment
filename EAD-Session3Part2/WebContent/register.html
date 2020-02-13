@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Metacube Parking System</title>
+
+
+    <script src="javascript.js"></script>
+
+
+</head>
+
+<body>
+    <div class="main">
+
+        <section class="register">
+            <div class="container">
+                <fieldset>
+                    <legend id="formTitle" style="margin: auto; font-size: 20px; font-style: italic; color:  rgb(56, 54, 54);">Register for Metacube parking</legend>
+                    <div class="registration-content">
+                        <form id="registrationform" class="registration-form" method="post" action="Register">
+                            <div class="group">
+                                <input type="text" class="form-input" name="name" id="name" placeholder="Your Name" required />
+                                <p id="nameAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Please enter valid name</p>
+                            </div>
+                            <div class="group">
+                                <input type="radio" name="gender" value="male" class="radio-button" checked/>Male
+                                <input type="radio" name="gender" value="female" class="radio-button" />Female
+                            </div>
+                            <div class="group">
+                                <input type="text" class="form-input" name="contactNo" id="number"  maxlength="10" placeholder="Enter contact number" required/>
+                                <p id="numberAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Please enter valid number</p>
+                            </div>
+                            <div class="group">
+                                <input type="email" class="form-input" name="email" id="email" placeholder="Your Email" required/>
+                                <p id="emailAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Please enter valid email</p>
+                            </div>
+                             <div class="group">
+                                <select class="form-input" id="typeOforg" name="org">
+                                        <option class="form-input" value="M1" >M1</option>
+                                        <option  class="form-input" value="M2" >M2</option>
+                                        <option class="form-input" value="M3">M3</option>
+                                         <option class="form-input" value="M4" >M4</option>
+                                      </select>
+                            </div>
+                            <div class="group">
+                                <input type="password" class="form-input" name="password" id="password" placeholder="Password" onkeyup="isValid()" required/>
+                                <p id="passwordAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: -3px;">*Length should be greater than 8 characters."</p>
+                            </div>
+
+                            <div class="group">
+                                <input type="password" class="form-input" name="re_password" id="re_password" placeholder="confirm your password" required />
+                                <p id="confirmAlert" style="font-size:small; font-weight: 500; color:rgb(56, 54, 54); padding-bottom:-20px; margin-bottom: 1px;">Password do not match</p>
+                            </div>
+                            <div class="group">
+                                <input type="submit" name="submit" id="submit" class="form-submit" value="Register" onclick="employeeRegister()" />
+                            </div>
+                            <p class="loginhere" style="color:rgb(56, 54, 54);">
+                                Have already an account ? <a href="login.html" class="loginhere-link">Login here</a>
+                            </p>
+                        </form>
+                        </div>
+
+                </fieldset>
+                </div>
+        </section>
+
+        </div>
+</body>
+
+</html>
