@@ -1,0 +1,7 @@
+@charset "ISO-8859-1";
+#table table-striped
+{
+	border:thin;
+	margin: auto;
+	padding: 20px;
+}
