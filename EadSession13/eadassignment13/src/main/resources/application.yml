@@ -1,0 +1,14 @@
+spring:
+  mvc:
+   view:
+    prefix: /WEB-INF/pages/
+    suffix: .jsp
+  datasource: 
+   url: jdbc:mysql://localhost:3306/hibernateparking
+   username: root
+   password: root 
+   driver: com.mysql.cj.jdbc.Driver
+  jpa:
+   hibernate:
+     ddl-auto: update
+     show_sql: true
