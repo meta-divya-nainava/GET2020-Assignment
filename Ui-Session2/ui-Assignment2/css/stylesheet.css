@@ -1,0 +1,173 @@
+/* style for list- item in navigation */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+
+/* style for shfiting navigation content to left */
+
+li {
+    float: left;
+}
+
+
+/* style for navigation text */
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/* Change the link color to #111 (black) on hover */
+
+li a:hover {
+    background-color: #111;
+}
+
+
+/* style for employee form .Border,width,bakground-color are styled */
+
+.employeeRegion {
+    text-align: center;
+    border-style: inset;
+    border-color: grey;
+    border-radius: 20px;
+    width: 250px;
+    padding: 30px;
+    margin: 50px auto;
+    background-color: silver;
+}
+
+
+/* style for vehicle form .Border,width,bakground-color are styled */
+
+.vehicleRegion {
+    text-align: center;
+    border-style: inset;
+    border-color: grey;
+    border-radius: 20px;
+    width: 300px;
+    padding: 30px;
+    margin: 50px auto;
+    background-color: silver;
+}
+
+
+/* style for feedback form .Border,width,bakground-color are styled */
+
+.feedbackRegion {
+    text-align: center;
+    border-style: inset;
+    border-color: grey;
+    border-radius: 20px;
+    width: 300px;
+    padding: 30px;
+    margin: 50px auto;
+    background-color: silver;
+}
+
+
+/* style for price blocks .Border,width,bakground-color are styled */
+
+.pricingBlock {
+    border-color: grey;
+    text-align: center;
+    margin-left: 90px;
+    border-style: inset;
+    border-radius: 20px;
+    width: 200px;
+    padding: 50px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    display: inline-block;
+    background-color: silver;
+}
+
+
+/* style for image div */
+
+#imgDiv {
+    text-align: center;
+    margin: auto;
+}
+
+
+/* style form input i.e text,email,contact number etc. */
+
+.form input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=text],
+select,
+textarea {
+    margin: 10px;
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    border-bottom: 2px solid black;
+    width: 200px;
+    padding: 10px;
+}
+
+
+/* style submit and button input */
+
+.form,
+input[type=submit],
+input[type=button] {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 200px;
+    border-radius: 25px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(233, 233, 233);
+    background-color: black;
+    border-bottom: 2px solid white;
+}
+
+
+/* style circle used in pricing region */
+
+.circle {
+    padding: 10px;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border-style: inset;
+    border-color: grey;
+    display: inline-block;
+}
+
+
+/* style heading of each form */
+
+.heading {
+    top: 0;
+    background-color: teal;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    font-size: 30px;
+    margin-top: 0px;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

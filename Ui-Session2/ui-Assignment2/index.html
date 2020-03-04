@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+
+</head>
+
+<body>
+
+    <div>
+        <!-- Nav Bar Div -->
+        <div id="navBar">
+            <ul>
+                <li><a onclick="showEmployee()" href="#addEmployee">Add Employee</a></li>
+                <li><a onclick="showVehicle()" href="#addVehicle">Add Vehicle</a></li>
+                <li><a onclick="showFeedback()" href="#feedback">Give feedback</a></li>
+                <li><a onclick="showPricing()" href="#pricing">Pricing</a></li>
+            </ul>
+        </div>
+        <!-- Image Div -->
+        <div id="imgDiv">
+            <img src="image/Parking-Icon-Jewells.png" alt="Parking Logo">
+        </div>
+        <!-- Employee  Region -->
+        <div>
+            <div>
+                <Button class="heading" onclick="showEmployee()" id="addEmployee">EmployeeForm</Button>
+                <div class="employeeRegion">
+                    <form>
+                        <div>
+                            <input type="text" name="fullName" id="fullName" placeholder="Full Name" pattern="[A-Z a-z]*" required>
+
+                        </div>
+                        <div>
+
+                            <label for="maleButton">
+                    <input type="radio" name="gender" id="maleButton" >Male
+                </label>
+                            <label for="femaleButton">
+                    <input type="radio" name="gender" id="femaleButton">Female
+                </label>
+                        </div>
+                        <div>
+                            <input type="email" name="emailId" id="emailId" placeholder="Email Address" pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" required>
+
+                        </div>
+                        <div>
+                            <input type="password" name="password" id="password" placeholder="Password" pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}" required>
+
+                        </div>
+                        <div>
+                            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}" required>
+
+                        </div>
+                        <div>
+                            <input type="tel" name="contactNumber" id="contactNumber" placeholder="Contact Number" pattern="([0-9]){10}" required>
+
+                        </div>
+                        <div>
+                            <input type="submit" value="Add Employee">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Vehicle  Region  -->
+            <div id="addVehicle">
+                <Button class="heading" onclick="showVehicle()">VehicleForm</Button>
+                <div class="vehicleRegion">
+
+                    <form>
+                        <div>
+                            <input type="text" name="vehiclecompany" placeholder="Vehicle Company" id="vehicleCompany" id="company" pattern="[A-Z a-z]*" required>
+                        </div>
+                        <div>
+                            <input type="text" name="model" placeholder="Vehicle Model" id="model" required>
+                        </div>
+                        <div>
+                            <select name="typeOfVehicle">
+                    <option disabled selected>--Select-Type--</option>
+                    <option value="Cycle">Cycle</option>
+                    <option value="MotorCycle">MotorCycle</option>
+                    <option value="Four Wheelers">Four Wheelers</option>
+                </select>
+                        </div>
+                        <div>
+                            <input type="text" name="vehicleNumber" placeholder="Vehicle Number" pattern="^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$" id="vehicleNumber" required>
+                        </div>
+                        <div>
+                            <input type="text" name="employeeId" placeholder="Employee Id" id="employeeId" required>
+                        </div>
+                        <div>
+                            <textarea name="vehicleIdentification" placeholder="Identification" placeholder="Color, Mark, Visible Accessory" cols="30" required></textarea>
+                        </div>
+                        <div>
+                            <input type="submit" value="Add Vehicle">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Feedback region -->
+            <div id="feedback">
+                <Button class="heading" onclick="showFeedback()">FeedbackForm</Button>
+                <div class="feedbackRegion">
+
+                    <div>
+                        <form>
+                            <div>
+                                <input type="text" name="name" id="name" placeholder="Name">
+                            </div>
+                            <div>
+                                <input type="email" name="emailId" id="emailId" placeholder="Email">
+                            </div>
+                            <div>
+                                <input type="text" name="subject" id="subject" placeholder="Subject">
+                            </div>
+                            <div>
+                                <textarea name="vehicleIdentification" placeholder="Message " cols="30" required></textarea>
+                            </div>
+                            <div>
+                                <input type="submit" value="Send Email">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <!-- Price Region -->
+                <div id="pricing">
+                    <Button class="heading" onclick="showPricing()">PricingForm</Button>
+                    <div class="pricingRegion">
+
+                        <div id="priceCycle" class="pricingBlock">
+                            <h2>Cycle</h2>
+                            <!-- Div for display highlighted price -->
+                            <div>
+                                <span class="circle"><strong>$100</strong>
+                    /Month</span><br><br>
+                            </div>
+                            <span>$5 Daily</span><br><br>
+                            <span>$100 Monthly</span><br><br>
+                            <span>$500 Yearly</span><br><br>
+                            <input type="button" value="PURCHASE NOW" id="purchaseCycle">
+                        </div>
+                        <div id="priceMotorcycle" class="pricingBlock">
+                            <h2>Motor Cycle</h2>
+                            <!-- Div for display highlighted price -->
+                            <div>
+                                <span class="circle"><strong>$200</strong>
+                    /Month</span><br><br>
+                            </div>
+                            <span>$10 Daily</span><br><br>
+                            <span>$200 Monthly</span><br><br>
+                            <span>$1000 Yearly</span><br><br>
+                            <input type="button" value="PURCHASE NOW" id="purchaseMotorcycle">
+                        </div>
+                        <div id="priceFourwheeler" class="pricingBlock">
+                            <h2>Four Wheelers</h2>
+                            <!-- Div for display highlighted price -->
+                            <div>
+                                <span class="circle"><strong>$500</strong>
+                    /Month</span><br><br>
+                            </div>
+                            <span>$20 Daily</span><br><br>
+                            <span>$500 Monthly</span><br><br>
+                            <span>$3500 Yearly</span><br><br>
+                            <input type="button" value="PURCHASE NOW" id="purchaseFourwheeler">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <script src="javascript/script.js"></script>
+
+</body>
+
+</html>
