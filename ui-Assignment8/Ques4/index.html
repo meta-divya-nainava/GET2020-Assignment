@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Stack</title>
+    <script src="https://kit.fontawesome.com/68c06cb343.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <style>
+        .hide-element {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="jumbotron text-center">
+            <h2 class="text-center mb-3" id="heading">Stack Operation</h2>
+            <div class="form-group hide-element" id="homeButton">
+                <input type="button" value="Home " onclick="showOperation() ">
+            </div>
+            <form id="submitSection ">
+                <div class="form-group ">
+                    <input type="button " value="Show List " onclick="showList() ">
+                </div>
+                <div class="form-group ">
+                    <input type="button " value="Push Element " onclick="push() ">
+                </div>
+                <div class="form-group ">
+                    <input type="button " value="Pop element " onclick="pop() ">
+                </div>
+            </form>
+            <form id="pushSection " class="hide-element ">
+                <div class="form-group ">
+                    <input type="text " id="inputValue " placeholder="Enter element to be pushed ">
+                </div>
+                <div class="form-group ">
+                    <input type="button " value="Submit " onclick="pushElement() ">
+                </div>
+            </form>
+            <div class="form-group ">
+                <p id="result " class="text-center "></p>
+            </div>
+        </div>
+    </div>
+    <script src="scriptQues4.js "></script>
+</body>
+
+</html>
