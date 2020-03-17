@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Blog Template for Bootstrap</title>
+    <script src="https://kit.fontawesome.com/68c06cb343.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h2 class="text-center mb-3" id="heading">Employee Form</h2>
+            <label class="form-group" id="labelMsg">May I know your name?</label>
+            <!-- Employee Region -->
+            <form id="employeeForm">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="fullName" id="fullName" placeholder="Full Name" onkeydown="validate(this,'gender','nameAlert',event)" required>
+                    <p id="nameAlert" class="hide-element alert-message">Name should be in format firstName lastName</p>
+                </div>
+                <div class="form-group hide-element" id="gender" onkeydown="validate(this,'emailId','genderAlert',event)">
+
+                    <label for="maleButton">
+        <input type="radio" name="gender" id="maleButton" onkeydown="validate(this,'emailId','genderAlert',event)">Male
+    </label>
+                    <label for="femaleButton">
+        <input type="radio" name="gender" id="femaleButton" onkeydown="validate(this,'emailId','genderAlert',event)">Female
+    </label>
+                    <p id="genderAlert" class="hide-element alert-message">Please enter gender</p>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="emailId" class="form-control hide-element" id="emailId" onkeydown="validate(this,'password','emailAlert',event)" placeholder="Email Address" required>
+                    <p id="emailAlert" class="hide-element alert-message">Invalid email</p>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control hide-element" id="password" onkeydown="validate(this,'confirmPassword','passwordAlert',event)" onkeyup="isValid()" placeholder="Password" required>
+                    <p id="passwordAlert" class="hide-element alert-message">Password should contains Uppercase, Lowercase, Numeric, Alphanumeric, and length minimum 8
+                    </p>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="confirmPassword" class="form-control hide-element" id="confirmPassword" onkeydown="validate(this,'contactNumber','confirmAlert',event)" placeholder="Confirm Password" required>
+                    <p id="confirmAlert" class="hide-element alert-message">password do not match</p>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="contactNumber" class="form-control hide-element" id="contactNumber" onkeydown="validate(this,'submit','contactAlert',event)" placeholder="Contact Number" required>
+                    <p id="contactAlert" class="hide-element alert-message">Invalid number, length should be 10</p>
+                </div>
+                <div class="form-group ">
+                    <input type="button" class="hide-element" id="submit" value="Add Employee" onclick="showVehicle()">
+                </div>
+            </form>
+            <!-- Vehicle Region -->
+            <form id="vehicleForm" class="hide-element">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="employeeId" id="employeeId" readonly />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" id="vecname" placeholder="Vehicle Name" onkeydown="validate(this,'typeOfVehicle','vecNameAlert',event)" />
+                    <p id="vecNameAlert" class="hide-element alert-message">Please enter valid vehicle name</p>
+                </div>
+                <div class="form-group hide-element" id="typeOfVehicle">
+                    <select class="form-control" id="selectVehicle" onkeydown="validate(this,'vecnumber','selectAlert',event)">
+                            <option class="form-control" value="MotorCycle" >MotorCycle</option>
+                            <option  class="form-control" value="cycle"  >Cycle</option>
+                            <option class="form-control" value="four-wheelers">Four-Wheelers</option>
+                          </select>
+                    <p id="selectAlert" class="hide-element alert-message">Invalid selection</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control hide-element" name="number" id="vecnumber" placeholder="Enter vehicle number" onkeydown="validate(this,'identification','vecNumberAlert',event)">
+                    <p id="vecNumberAlert" class="hide-element alert-message">>Please enter valid vehicle number, vehicle number should be in format "RJ 0000"</p>
+                </div>
+
+                <div class="form-group ">
+                    <textarea placeholder="describe vehicle identifications" class="form-control hide-element" id="identification" onkeydown="validate(this,'vecSubmit','textAlert',event)"></textarea>
+                    <p id="textAlert" class="hide-element alert-message">Invalid text</p>
+                </div>
+                <div class="form-group ">
+                    <input type="button" name="submit" id="vecSubmit" class="form-control hide-element" value="Get Passes" onclick="showPasses()" />
+                </div>
+
+            </form>
+            <!-- passes Region -->
+            <form class="passes text-center hide-element" id="passDetail">
+                <div class="form-group">
+                    <input type="radio" name="passes" value="Daily" id="daily" checked>Daily
+                    <input type="text" name="name1" style="margin-left:30px; " id="Daily" disabled/>
+                </div>
+                <div class="form-group">
+                    <label>
+                    <input type="radio" name="passes" value="Monthly" id="monthly" >Monthly
+                    <input type="text" name="name1" style="margin-left:10px; " id="Monthly" disabled />
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" name="passes" value="Yearly" id="yearly">Yearly
+                    <input type="text" name="name1" style="margin-left:24px; " id="Yearly" disabled/>
+                </div>
+                <div class="form-group">
+                    <input type="button" name="submit" id="submit" class="form-submit" value="USD" onclick="getUSD()" />
+                </div>
+                <div class="form-group">
+                    <input type="button" name="submit" id="submit" class="form-submit" value="YEN" onclick="getYEN()" />
+                </div>
+                <div class="form-group">
+                    <input type="button" name="submit" id="submit" class="form-submit" value="Bill" onclick="getBill()" />
+                </div>
+            </form>
+            <!-- Bill section -->
+            <p class="billDetail" id="billDetail"></p>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
